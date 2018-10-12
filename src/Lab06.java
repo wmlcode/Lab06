@@ -20,7 +20,8 @@ public class Lab06 {
         //o.printAllAndTotal_ch1();
         //o.printSalaryByDept_ch2();
         //o.printUsersByDept_ch4("CS");
-        o.printNumRowsOrAffected_ch5("SELECT id, firstname, lastname, salary, department_code, hire_date FROM employee");
+        //o.printNumRowsOrAffected_ch5("SELECT id, firstname, lastname, salary, department_code, hire_date FROM employee");
+        o.printNumRowsOrAffected_ch5("UPDATE employee SET hire_date = '1989-02-04' WHERE id = 6567");
     }
 
     /*
@@ -125,6 +126,9 @@ public class Lab06 {
                     }
                     System.out.println();
                 }
+            } else if (st.trim().indexOf("INSERT") != -1 || st.trim().indexOf("UPDATE") != -1 || st.trim().indexOf("DELETE") != -1) {
+                Integer af = stmt.executeUpdate(st);
+                System.out.println("Count of affected rows: " + af.toString());
             }
 
         }
